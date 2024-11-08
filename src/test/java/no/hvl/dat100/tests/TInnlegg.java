@@ -12,4 +12,10 @@ public class TInnlegg extends Innlegg {
 		super(id, bruker,dato,likes);
 	}
 
+	@Override
+	public String getTekst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -31,7 +31,7 @@ public class Tekst extends Innlegg {
 
     @Override
     public String toString() {
-        return "TEKST\n" + super.toString().trim() + " " + tekst + "\n"; 
+        return "TEKST\n" + super.toString().trim() + "\n" + tekst + "\n"; 
     }
     // Metoden nedenfor er kun for valgfri oppgave 6
     public String toHTML() {

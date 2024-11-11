@@ -14,14 +14,12 @@ public abstract class Innlegg {
     public Innlegg(int id, String bruker, String dato) {
         this.id = id;
         this.bruker = bruker;
-        this.dato  
- = dato;
+        this.dato = dato;
         this.likes = 0;
     }
 
     public Innlegg(int id, String bruker, String dato, int likes) {
-        this.id 
- = id;
+        this.id = id;
         this.bruker = bruker;
         this.dato = dato;
         this.likes = likes;
@@ -70,7 +68,7 @@ public abstract class Innlegg {
     // Metoden nedenfor er kun for valgfri   
  
     public String toHTML() {
-        throw new UnsupportedOperationException("TODO.method()"); 
+    	return "\t\t<h2>" + bruker + "@" + dato + " [" + likes + "]" + "\n";
 
     }
 

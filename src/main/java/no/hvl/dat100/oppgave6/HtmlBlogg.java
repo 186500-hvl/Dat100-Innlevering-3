@@ -16,9 +16,16 @@ public class HtmlBlogg extends Blogg {
 	private static String HTMLPOSTFIX = 
 			"\t</body>\n</html>";
 	
+	private int nesteledig;
+	private Innlegg[] innleggtabell;
+	
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		String resultat = nesteledig + "\n";
+        for (int i = 0; i < nesteledig; i++) {
+            resultat += innleggtabell[i].toHTML();
+        }
+        return HTMLPREFIX + resultat + HTMLPOSTFIX;
 		
 	}
 }

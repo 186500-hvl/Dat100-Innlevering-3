@@ -27,11 +27,11 @@ public class LesBlogg {
             blogg = new Blogg(antallInnlegg);
 
             for (int i = 0; i < antallInnlegg; i++) {
+            	String type = scanner.nextLine();
                 int id = Integer.parseInt(scanner.nextLine());
                 String bruker = scanner.nextLine();
                 String dato = scanner.nextLine();
                 int likes = Integer.parseInt(scanner.nextLine());
-                String type = scanner.nextLine();
 
                 Innlegg innlegg;
 
@@ -40,7 +40,8 @@ public class LesBlogg {
                     innlegg = new Tekst(id, bruker, dato, likes, tekst);
                 } else if (type.equals(BILDE)) {
                     String url = scanner.nextLine();
-                    innlegg = new Bilde(id, bruker, dato, likes, url);
+                    String tekst = scanner.nextLine();
+                    innlegg = new Bilde(id, bruker, dato, likes, tekst, url);
                 } else {
                     
                     scanner.close();

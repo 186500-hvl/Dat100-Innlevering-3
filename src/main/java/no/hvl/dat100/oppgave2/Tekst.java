@@ -30,14 +30,11 @@ public class Tekst extends Innlegg {
     }
 
     @Override
-    public String toString() 
- {
-        return "TEKST\n" + super.toString() + tekst + "\n";
+    public String toString() {
+        return "TEKST\n" + super.toString().trim() + " " + tekst + "\n"; 
     }
-
     // Metoden nedenfor er kun for valgfri oppgave 6
     public String toHTML() {
         throw new UnsupportedOperationException("TODO.method()"); 
-
-    }
-}
+    }}
+    

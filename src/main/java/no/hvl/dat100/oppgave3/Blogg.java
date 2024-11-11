@@ -1,6 +1,5 @@
 package no.hvl.dat100.oppgave3;
 
-import no.hvl.dat100.common.TODO;
 import no.hvl.dat100.oppgave1.*;
 
 public class Blogg {
@@ -13,8 +12,7 @@ public class Blogg {
         nesteledig = 0;
     }
 
-    public 
- Blogg(int lengde) {
+    public Blogg(int lengde) {
         innleggtabell = new Innlegg[lengde];
         nesteledig = 0;
     }
@@ -27,8 +25,7 @@ public class Blogg {
         return innleggtabell;
     }
 
-    public int finnInnlegg(Innlegg innlegg) 
- {
+    public int finnInnlegg(Innlegg innlegg) {
         for (int i = 0; i < nesteledig; i++) {
             if (innleggtabell[i].erLik(innlegg)) {
                 return i;
@@ -37,13 +34,11 @@ public class Blogg {
         return -1;
     }
 
-    public boolean finnes(Innlegg innlegg) 
- {
+    public boolean finnes(Innlegg innlegg) {
         return finnInnlegg(innlegg) != -1;
     }
 
-    public 
- boolean ledigPlass() {
+    public boolean ledigPlass() {
         return nesteledig < innleggtabell.length;
     }
 
@@ -51,22 +46,19 @@ public class Blogg {
         if (!finnes(innlegg) && ledigPlass()) {
             innleggtabell[nesteledig] = innlegg;
             nesteledig++;
-            return 
- true;
+            return true;
         }
         return false;
     }
 
+    @Override
     public String toString() {
-        String 
- resultat = nesteledig + "\n";
+        String resultat = nesteledig + "\n";
         for (int i = 0; i < nesteledig; i++) {
-            resultat += innleggtabell[i].toString() + "\n";
+            resultat += innleggtabell[i].toString() + "\n"; 
         }
         return resultat;
     }
-
-    // valgfrie oppgaver nedenfor
 
     public void utvid() {
         Innlegg[] nyTabell = new Innlegg[innleggtabell.length * 2];
@@ -79,8 +71,7 @@ public class Blogg {
     public boolean leggTilUtvid(Innlegg innlegg) {
         if (!finnes(innlegg)) {
             if (!ledigPlass()) {
-                utvid(); 
-
+                utvid();
             }
             innleggtabell[nesteledig] = innlegg;
             nesteledig++;
@@ -101,23 +92,18 @@ public class Blogg {
         return false;
     }
 
-    public int[] search(String keyword) 
- {
+    public int[] search(String keyword) {
+        int[] funnetId = new int[nesteledig];
         int antallFunnet = 0;
         for (int i = 0; i < nesteledig; i++) {
             if (innleggtabell[i].getTekst().contains(keyword)) {
+                funnetId[antallFunnet] = innleggtabell[i].getId();
                 antallFunnet++;
             }
         }
 
-        int[] funnetId = new int[antallFunnet];
-        int indeks = 0;
-        for (int i = 0; i < nesteledig; i++) {
-            if (innleggtabell[i].getTekst().contains(keyword)) {
-                funnetId[indeks] = innleggtabell[i].getId();
-                indeks++;
-            }
-        }
-
-        return funnetId;
-    }}
+        int[] resultat = new int[antallFunnet];
+        System.arraycopy(funnetId, 0, resultat, 0, antallFunnet);
+        return resultat;
+    }
+}

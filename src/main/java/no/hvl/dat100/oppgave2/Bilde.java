@@ -15,7 +15,11 @@ public class Bilde extends Tekst {
         this.url = url;
     }
 
-    public String getUrl() {
+    public Bilde(int id, String bruker, String dato, int likes, String url2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getUrl() {
         return url;
     }
 
